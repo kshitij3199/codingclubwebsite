@@ -1,0 +1,22 @@
+{% extends "basic_app/basic_app_base.html"%}
+
+{% block body_block %}
+{% if user.is_authenticated %}
+<h1>Welcome to the Department detail page</h1>
+<h2>Department detail:</h2>
+<p>Name : {{school_detail.name}}</p>
+<p>Head : {{school_detail.head}}</p>
+<h3>Members:</h3>
+
+<ol>{% for student in school_detail.students.all %}
+<li>{{student.name}},Github:{{student.github}},Mobile no.: {{student.mobile}},Email : {{student.email}}, Interest - {{student.interest}} , Having Skills - {{student.skills}} </p>
+{% endfor %}</li></ol>
+ <!--<div class="container">
+   <p><a class="btn btn-warning" href="{% url 'basic_app:update' pk=school_detail.pk %}">Update</a></p>
+
+ </div-->
+ {% else %}
+ <h1>Login first</h1>
+ {% endif %}
+
+{% endblock %}

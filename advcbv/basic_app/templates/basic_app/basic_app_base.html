@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>BASE</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <ul class="nav navbar-nav">
+          <li><a class="navbar-brand"href="{% url 'basic_app:list'%}">Departments</a></li>
+          <li><a class="navbar-link" href="{% url 'admin:index'%}">Admin</a></li>
+          {% if user.is_authenticated %}
+          <li><a class="navbar-brand" href="{% url 'logout'%}">Logout</a></li>
+          {% else %}
+          <li><a class="navbar-brand" href="{% url 'basic_app:user_login'%}">Login</a></li>
+          {% endif %}
+          <li><a href="#"></a></li>
+      </ul>
+
+    </nav>
+    <div class="container">
+      {% block body_block %}
+      {% endblock %}
+    </div>
+
+  </body>
+</html>

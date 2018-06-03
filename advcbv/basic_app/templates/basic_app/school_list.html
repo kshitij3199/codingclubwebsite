@@ -1,0 +1,18 @@
+{% extends "basic_app/basic_app_base.html"%}
+
+{% block body_block %}
+
+{% if user.is_authenticated %}
+<h1>Coding Club :- Departments</h1>
+<ol>
+  {% for school in schools %}
+  <h2><li><a href="{{school.id}}">{{school.name}}</a></li></h2>
+  {% endfor %}
+</ol>
+
+{% else %}
+<h1> Login first </h1>
+{% endif %}
+
+
+{% endblock %}
